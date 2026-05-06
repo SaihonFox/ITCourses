@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:paddingHorizontal="16dp"
+	android:paddingTop="16dp"
+	android:background="@color/em_dark"
+	tools:context=".ui.MainFragment">
+	
+	<LinearLayout
+		android:id="@+id/linearLayout2"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_gravity="top"
+		android:orientation="horizontal"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent">
+		
+		<EditText
+			android:id="@+id/search_bar"
+			android:layout_width="match_parent"
+			android:layout_height="56dp"
+			android:layout_weight="1"
+			android:background="@drawable/input_shape"
+			android:drawableLeft="@drawable/search"
+			android:drawablePadding="16dp"
+			android:fontFamily="@font/roboto"
+			android:hint="Search courses..."
+			android:padding="16dp"
+			android:textColorHint="@color/em_white"
+			android:textSize="14sp" />
+		
+		<Space
+			android:layout_width="8dp"
+			android:layout_height="match_parent" />
+		
+		<com.google.android.material.button.MaterialButton
+			style="@style/FilterBtn"
+			android:layout_width="56dp"
+			android:layout_height="56dp"
+			android:drawableLeft="@drawable/funnel"
+			android:backgroundTint="@color/em_dark_gray"
+			android:padding="16dp" />
+	
+	</LinearLayout>
+	
+	<LinearLayout
+		android:id="@+id/ll_sort"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="16dp"
+		android:orientation="horizontal"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+	
+		<TextView
+			android:id="@+id/sortDate"
+			android:layout_width="wrap_content"
+			android:layout_height="20dp"
+			android:padding="0dp"
+			android:text="По дате добавления"
+			android:textSize="14sp"
+			android:fontFamily="@font/roboto_medium"
+			android:background="@color/transparent"
+			android:textColor="@color/em_green" />
+		
+		<Space
+			android:layout_width="4dp"
+			android:layout_height="match_parent" />
+		
+		<ImageView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:src="@drawable/arrow_down_up"
+			android:layout_gravity="bottom" />
+		
+	</LinearLayout>
+	
+	<androidx.recyclerview.widget.RecyclerView
+		android:id="@+id/courses"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_gravity="top"
+		android:layout_marginTop="16dp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/ll_sort" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

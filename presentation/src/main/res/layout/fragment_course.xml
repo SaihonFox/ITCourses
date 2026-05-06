@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/em_dark"
+	tools:context=".ui.CourseFragment">
+	
+	<ScrollView
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent">
+		
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+			
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+				
+				<ImageView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:contentDescription="image"
+					android:scaleType="centerCrop"
+					android:src="@drawable/cover2"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					tools:src="@drawable/cover2" />
+				
+				<View
+					android:layout_width="0dp"
+					android:layout_height="120dp"
+					android:background="@drawable/gradient"
+					android:clickable="false"
+					android:focusable="false"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent" />
+				
+				<Button
+					android:id="@+id/back_btn"
+					android:layout_width="44dp"
+					android:layout_height="44dp"
+					android:layout_marginLeft="16dp"
+					android:layout_marginTop="16dp"
+					android:background="@drawable/back_course_btn"
+					app:layout_constraintLeft_toLeftOf="parent"
+					app:layout_constraintTop_toTopOf="parent" />
+				
+				<Button
+					android:id="@+id/fav_btn"
+					android:layout_width="44dp"
+					android:layout_height="44dp"
+					android:layout_marginTop="16dp"
+					android:layout_marginRight="16dp"
+					android:background="@drawable/fav_course_btn"
+					app:layout_constraintRight_toRightOf="parent"
+					app:layout_constraintTop_toTopOf="parent" />
+				
+				<androidx.cardview.widget.CardView
+					android:id="@+id/rate_card"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="8dp"
+					android:layout_marginBottom="8dp"
+					app:cardCornerRadius="100dp"
+					app:cardBackgroundColor="@color/em_glass"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintLeft_toLeftOf="parent">
+					
+					<androidx.cardview.widget.CardView
+						android:id="@+id/rate_card_bg"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent" />
+					
+					<LinearLayout
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:orientation="horizontal"
+						android:paddingHorizontal="6dp"
+						android:paddingVertical="4dp">
+						<ImageView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center"
+							android:src="@drawable/star" />
+						<Space
+							android:layout_width="4dp"
+							android:layout_height="match_parent" />
+						<TextView
+							android:id="@+id/rate"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							style="@style/TypeCaption" />
+					</LinearLayout>
+				</androidx.cardview.widget.CardView>
+				
+				<androidx.cardview.widget.CardView
+					android:id="@+id/date_card"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="4dp"
+					android:layout_marginBottom="8dp"
+					android:paddingHorizontal="6dp"
+					android:paddingVertical="4dp"
+					app:cardCornerRadius="100dp"
+					app:cardBackgroundColor="@color/em_glass"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintLeft_toRightOf="@+id/rate_card">
+					
+					<androidx.cardview.widget.CardView
+						android:id="@+id/date_card_bg"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent" />
+					<TextView
+						android:id="@+id/date"
+						style="@style/TypeCaption"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginHorizontal="6dp"
+						android:layout_marginVertical="4dp" />
+				</androidx.cardview.widget.CardView>
+				
+			</androidx.constraintlayout.widget.ConstraintLayout>
+			
+			<TextView
+				android:id="@+id/title"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_margin="16dp"
+				android:textColor="@color/em_white"
+				android:fontFamily="@font/roboto"
+				android:textSize="22sp" />
+			
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="4dp"
+				android:layout_marginHorizontal="16dp"
+				android:orientation="horizontal">
+				
+				<androidx.cardview.widget.CardView
+					android:layout_width="40dp"
+					android:layout_height="40dp"
+					app:cardCornerRadius="20dp">
+					<ImageView
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:src="@drawable/merion"
+						android:scaleType="fitCenter" />
+				</androidx.cardview.widget.CardView>
+				
+				<Space
+					android:layout_width="12dp"
+					android:layout_height="match_parent" />
+				
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					android:layout_gravity="center_vertical">
+					
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:text="Автор"
+						android:alpha="0.5"
+						style="@style/TypeCaption" />
+					
+					<TextView
+						android:id="@+id/author"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:text="Merion Academy"
+						style="@style/TypeTitleMedium" />
+					
+				</LinearLayout>
+			</LinearLayout>
+			
+			<Button
+				android:id="@+id/start_course_btn"
+				android:layout_width="match_parent"
+				android:layout_height="40dp"
+				android:text="Начать курс"
+				android:layout_marginTop="32dp"
+				style="@style/PrimaryButtonStyle"
+				android:layout_marginHorizontal="16dp" />
+			
+			<Button
+				android:id="@+id/go_platform_btn"
+				android:layout_width="match_parent"
+				android:layout_height="40dp"
+				android:text="Перейти на платформу"
+				android:layout_marginTop="8dp"
+				style="@style/SecondaryButtonStyle"
+				android:layout_marginHorizontal="16dp" />
+			
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:text="О курсе"
+				android:layout_marginHorizontal="16dp"
+				android:layout_marginTop="28dp"
+				android:textColor="@color/em_white"
+				android:textSize="22sp"
+				android:fontFamily="@font/roboto" />
+			
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textSize="14sp"
+				android:fontFamily="@font/roboto"
+				android:textColor="@color/em_white"
+				android:layout_marginHorizontal="16dp"
+				android:text="У вас будет 7 видеоуроков в высоком качестве. На них спикер объясняет теорию и показывает как выполнять практические задания. Доступ к материалам сохраняется на 2 года\nКроме теоретических материалов вас ждут тесты и практические задания. Они помогут лучше запомнить новую информацию и прокачать навыки, которые необходимы для реальной работы с RabbitMQ." />
+			
+		</LinearLayout>
+	</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

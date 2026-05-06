@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<style name="PrimaryButtonStyle" parent="Widget.Material3.Button">
+		<item name="cornerRadius">30dp</item>
+		<item name="backgroundTint">@color/em_green</item>
+		<item name="fontFamily">@font/roboto_medium</item>
+		<item name="android:textSize">14sp</item>
+		<item name="android:layout_height">40dp</item>
+		<item name="android:textColor">@color/em_white</item>
+	</style>
+	
+	<style name="SecondaryButtonStyle" parent="Widget.Material3.Button">
+		<item name="cornerRadius">30dp</item>
+		<item name="backgroundTint">@color/em_dark_gray</item>
+		<item name="fontFamily">@font/roboto_medium</item>
+		<item name="android:textSize">14sp</item>
+		<item name="android:layout_height">40dp</item>
+		<item name="android:textColor">@color/em_white</item>
+	</style>
+	
+	<style name="FilterBtn" parent="Widget.Material3.Button">
+		<item name="background">@drawable/funnel_button_shape</item>
+		<item name="android:background">@drawable/funnel_button_shape</item>
+		<item name="backgroundTint">@color/em_dark_gray</item>
+		<item name="android:backgroundTint">@color/em_dark_gray</item>
+	</style>
+	
+	<style name="Divider" parent="CardView">
+		<item name="android:strokeColor">@color/em_stroke</item>
+		<item name="strokeWidth">1dp</item>
+	</style>
+	
+	<style name="FavButton" parent="Widget.Material3.CompoundButton.CheckBox">
+		<item name="android:button">@drawable/fav_checkbox_btn_selector</item>
+		<item name="colorOnSurface">@color/em_green</item>
+		<item name="colorOnSurfaceVariant">@color/em_green</item>
+		<item name="buttonIcon">@drawable/fav_checkbox_btn_selector</item>
+		<item name="buttonTint">@null</item>
+		<item name="android:buttonTint">@null</item>
+		<item name="buttonIconTint">@null</item>
+	</style>
+	
+	<style name="TypeCaption">
+		<item name="fontFamily">@font/roboto</item>
+		<item name="android:textSize">12sp</item>
+		<item name="android:textColor">@color/em_white</item>
+	</style>
+	
+	<style name="TypeTitleMedium">
+		<item name="fontFamily">@font/roboto_medium</item>
+		<item name="android:textSize">16sp</item>
+		<item name="android:textColor">@color/em_white</item>
+	</style>
+	
+	<style name="TypeTitleLarge">
+		<item name="fontFamily">@font/roboto</item>
+		<item name="android:textSize">22sp</item>
+		<item name="android:textColor">@color/em_white</item>
+	</style>
+	
+</resources>

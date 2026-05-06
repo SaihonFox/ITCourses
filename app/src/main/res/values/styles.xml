@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<style name="BottomNavStyle" parent="Widget.Material3.BottomNavigationView">
+		<item name="itemIconTint">@color/bottom_nav_texticon</item>
+		<item name="itemTextColor">@color/bottom_nav_texticon
+		</item>
+		<item name="itemBackground">@null</item>
+		<item name="itemActiveIndicatorStyle">@style/BottomNavPilula</item>
+	</style>
+	
+	<style name="BottomNavPilula" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+		<item name="android:color">#32333A</item>
+	</style>
+</resources>
