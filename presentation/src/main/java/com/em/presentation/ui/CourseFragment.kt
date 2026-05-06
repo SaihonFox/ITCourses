@@ -76,7 +76,7 @@ class CourseFragment : Fragment(R.layout.fragment_course) {
 				binding.title.text = course.title
 				binding.rate.text = course.rate
 				binding.date.text =
-					course.publishDate.format(DateTimeFormatter.ofPattern("dd MMM yyyy"))
+					course.publishDate.format(DateTimeFormatter.ofPattern("dd MMMM yyyy"))
 			}
 		}
 	}

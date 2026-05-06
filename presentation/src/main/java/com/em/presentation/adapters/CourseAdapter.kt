@@ -38,7 +38,7 @@ class CourseAdapter(private val onLike: (Long) -> Unit, private val onClick: (Lo
 			binding.title.text = course.title
 			binding.description.text = course.text
 			binding.rate.text = course.rate
-			binding.date.text = course.publishDate.format(DateTimeFormatter.ofPattern("dd MMM yyyy", Locale.getDefault()))
+			binding.date.text = course.publishDate.format(DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.getDefault()))
 			binding.price.text = "${course.price} ₽"
 			
 			binding.favBtn.isChecked = course.hasLike
