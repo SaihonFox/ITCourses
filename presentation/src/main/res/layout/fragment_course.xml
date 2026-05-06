@@ -53,7 +53,7 @@
 					android:layout_height="44dp"
 					android:layout_marginLeft="16dp"
 					android:layout_marginTop="16dp"
-					android:background="@drawable/back_course_btn"
+					style="@style/BackCourseButton"
 					app:layout_constraintLeft_toLeftOf="parent"
 					app:layout_constraintTop_toTopOf="parent" />
 				
@@ -63,7 +63,7 @@
 					android:layout_height="44dp"
 					android:layout_marginTop="16dp"
 					android:layout_marginRight="16dp"
-					android:background="@drawable/fav_course_btn"
+					style="@style/FavCourseButton"
 					app:layout_constraintRight_toRightOf="parent"
 					app:layout_constraintTop_toTopOf="parent" />
 				

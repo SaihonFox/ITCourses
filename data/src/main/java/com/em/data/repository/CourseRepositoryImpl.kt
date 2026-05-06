@@ -7,6 +7,7 @@ import com.em.data.mapper.toEntity
 import com.em.domain.model.Course
 import com.em.domain.repository.CourseRepository
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 
 class CourseRepositoryImpl(private val api: CourseAPI, private val dao: CourseDao) : CourseRepository {
@@ -17,11 +18,17 @@ class CourseRepositoryImpl(private val api: CourseAPI, private val dao: CourseDa
 	override suspend fun syncWithServer() {
 		try {
 			val response = api.getCourses()
-			if (!response.isSuccessful)
+			if (!response.isSuccessful || response.body() == null)
 				return
 			
-			val body = response.body()
-			dao.insertRange(body?.map { it.toEntity() }.orEmpty())
+			val body = response.body()!!.map { it.toEntity() }
+			
+			val localLikes = dao.getCourses().first().associate { it.id to it.hasLike }
+			val mergedEntities = body.map { serverEntity ->
+				serverEntity.copy(hasLike = localLikes[serverEntity.id] ?: false)
+			}
+			
+			dao.insertRange(mergedEntities)
 		} catch (e: Exception) {
 			e.printStackTrace()
 		}

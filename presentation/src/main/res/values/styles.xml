@@ -40,6 +40,18 @@
 		<item name="buttonIconTint">@null</item>
 	</style>
 	
+	<style name="FavCourseButton" parent="Widget.Material3.Button">
+		<item name="android:background">@drawable/fav_course_btn</item>
+		<item name="background">@drawable/fav_course_btn</item>
+		<item name="backgroundTint">@null</item>
+		<item name="android:backgroundTint">@null</item>
+	</style>
+	
+	<style name="BackCourseButton" parent="Widget.Material3.Button">
+		<item name="android:background">@drawable/back_course_btn</item>
+		<item name="backgroundTint">@null</item>
+	</style>
+	
 	<style name="TypeCaption">
 		<item name="fontFamily">@font/roboto</item>
 		<item name="android:textSize">12sp</item>

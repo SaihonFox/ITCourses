@@ -68,7 +68,7 @@ class CourseFragment : Fragment(R.layout.fragment_course) {
 	private fun topInset(vararg views: View) {
 		ViewCompat.setOnApplyWindowInsetsListener(binding.root) { _, insets ->
 			val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-			Toast.makeText(context, "Bar: ${bars.top.pxToDp(requireContext())}", Toast.LENGTH_SHORT).show()
+			
 			for(view in views) {
 				val params = view.layoutParams as ViewGroup.MarginLayoutParams
 				params.updateMargins(top = bars.top)
@@ -85,14 +85,4 @@ class CourseFragment : Fragment(R.layout.fragment_course) {
 	): View? {
 		return inflater.inflate(R.layout.fragment_course, container, false)
 	}
-}
-
-fun Int.dpToPx(context: Context): Int {
-	val metrics = context.resources.displayMetrics
-	return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, this.toFloat(), metrics).toInt()
-}
-
-fun Int.pxToDp(context: Context): Int {
-	val metrics = context.resources.displayMetrics
-	return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, this.toFloat(), metrics).toInt()
 }

@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
@@ -28,13 +29,13 @@ class MainViewModel(uc: GetCourseUseCase, private val repo: CourseRepository) : 
 	}
 	
 	val displayedCourses: StateFlow<List<Course>> = combine(uc(), _query, _asc) { courses, q, asc ->
-			val filtered = if (q.isBlank()) courses else courses.filter {
-				it.title.contains(
-					q,
-					ignoreCase = true
-				)
-			}
-			return@combine if (asc) filtered.sortedBy { it.publishDate } else filtered.sortedByDescending { it.publishDate }
+		val filtered = if (q.isBlank()) courses else courses.filter {
+			it.title.contains(
+				q,
+				ignoreCase = true
+			)
+		}
+		return@combine if (asc) filtered.sortedBy { it.publishDate } else filtered.sortedByDescending { it.publishDate }
 	}.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList<List<Course>>()) as StateFlow<List<Course>>
 	
 	fun toggleLike(id: Long) = viewModelScope.launch { repo.toggleLike(id) }

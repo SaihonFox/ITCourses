@@ -6,5 +6,6 @@
 			<size android:width="44dp" android:height="44dp" />
 		</shape>
 	</item>
-	<item android:height="24dp" android:width="24dp" android:gravity="center" android:drawable="@drawable/bookmark_black" />
+	
+	<item android:state_checked="false" android:gravity="center" android:drawable="@drawable/bookmark_black" />
 </layer-list>
