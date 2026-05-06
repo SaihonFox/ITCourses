@@ -1,6 +1,9 @@
 package com.em.presentation.ui
 
 import android.content.Context
+import android.graphics.RenderEffect
+import android.graphics.Shader
+import android.os.Build
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.TypedValue
@@ -35,11 +38,24 @@ class CourseFragment : Fragment(R.layout.fragment_course) {
 		
 		binding = FragmentCourseBinding.bind(view)
 		
-		ViewCompat.setOnApplyWindowInsetsListener(binding.root) { view, _ ->
-			view.updatePadding(top = 0)
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+			val blur = RenderEffect.createBlurEffect(16f, 16f, Shader.TileMode.MIRROR)
+			binding.rateCardBg.setRenderEffect(blur)
+			binding.dateCardBg.setRenderEffect(blur)
+		}
+		
+		ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
+			val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+			v.updatePadding(top = 0)
+			
+			for(view in listOf(binding.backBtn, binding.favBtn)) {
+				val params = view.layoutParams as ViewGroup.MarginLayoutParams
+				params.updateMargins(top = bars.top)
+				view.layoutParams = params
+			}
+			
 			WindowInsetsCompat.CONSUMED
 		}
-		topInset(binding.backBtn, binding.favBtn)
 		
 		binding.backBtn.setOnClickListener {
 			parentFragmentManager.popBackStack()
@@ -62,20 +78,6 @@ class CourseFragment : Fragment(R.layout.fragment_course) {
 				binding.date.text =
 					course.publishDate.format(DateTimeFormatter.ofPattern("dd MMM yyyy"))
 			}
-		}
-	}
-	
-	private fun topInset(vararg views: View) {
-		ViewCompat.setOnApplyWindowInsetsListener(binding.root) { _, insets ->
-			val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-			
-			for(view in views) {
-				val params = view.layoutParams as ViewGroup.MarginLayoutParams
-				params.updateMargins(top = bars.top)
-				view.layoutParams = params
-			}
-			
-			WindowInsetsCompat.CONSUMED
 		}
 	}
 	

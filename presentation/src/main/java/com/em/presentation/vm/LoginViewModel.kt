@@ -19,10 +19,6 @@ class LoginViewModel : ViewModel() {
 		email.isNotBlank() && emailRegex.matches(email) && pwd.isNotBlank()
 	}.stateIn(viewModelScope, SharingStarted.Lazily, false)
 	
-	init {
-	
-	}
-	
 	fun onEmailChange(value: String) {
 		_email.value = value
 	}

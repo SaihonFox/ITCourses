@@ -29,12 +29,13 @@ class MainViewModel(uc: GetCourseUseCase, private val repo: CourseRepository) : 
 	}
 	
 	val displayedCourses: StateFlow<List<Course>> = combine(uc(), _query, _asc) { courses, q, asc ->
-		val filtered = if (q.isBlank()) courses else courses.filter {
-			it.title.contains(
-				q,
-				ignoreCase = true
-			)
-		}
+		val filtered =
+			if (q.isBlank()) courses
+			else
+				courses.filter {
+					it.title.contains(q, ignoreCase = true) ||
+					it.price.contains(q, ignoreCase = true)
+				}
 		return@combine if (asc) filtered.sortedBy { it.publishDate } else filtered.sortedByDescending { it.publishDate }
 	}.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList<List<Course>>()) as StateFlow<List<Course>>
 	

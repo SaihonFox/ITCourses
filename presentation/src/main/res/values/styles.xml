@@ -27,7 +27,7 @@
 	
 	<style name="Divider" parent="CardView">
 		<item name="android:strokeColor">@color/em_stroke</item>
-		<item name="strokeWidth">1dp</item>
+		<item name="borderWidth">1dp</item>
 	</style>
 	
 	<style name="FavButton" parent="Widget.Material3.CompoundButton.CheckBox">
@@ -67,6 +67,12 @@
 	<style name="TypeTitleLarge">
 		<item name="fontFamily">@font/roboto</item>
 		<item name="android:textSize">22sp</item>
+		<item name="android:textColor">@color/em_white</item>
+	</style>
+	
+	<style name="TypeBodyMedium">
+		<item name="fontFamily">@font/roboto</item>
+		<item name="android:textSize">14sp</item>
 		<item name="android:textColor">@color/em_white</item>
 	</style>
 	
