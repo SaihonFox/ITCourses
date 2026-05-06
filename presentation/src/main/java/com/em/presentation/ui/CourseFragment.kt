@@ -35,11 +35,18 @@ class CourseFragment : Fragment(R.layout.fragment_course) {
 		
 		binding = FragmentCourseBinding.bind(view)
 		
-		ViewCompat.setOnApplyWindowInsetsListener(binding.root) { view, _ ->
-			view.updatePadding(top = 0)
+		ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
+			val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+			v.updatePadding(top = 0)
+			
+			for(view in listOf(binding.backBtn, binding.favBtn)) {
+				val params = view.layoutParams as ViewGroup.MarginLayoutParams
+				params.updateMargins(top = bars.top)
+				view.layoutParams = params
+			}
+			
 			WindowInsetsCompat.CONSUMED
 		}
-		topInset(binding.backBtn, binding.favBtn)
 		
 		binding.backBtn.setOnClickListener {
 			parentFragmentManager.popBackStack()
@@ -62,20 +69,6 @@ class CourseFragment : Fragment(R.layout.fragment_course) {
 				binding.date.text =
 					course.publishDate.format(DateTimeFormatter.ofPattern("dd MMM yyyy"))
 			}
-		}
-	}
-	
-	private fun topInset(vararg views: View) {
-		ViewCompat.setOnApplyWindowInsetsListener(binding.root) { _, insets ->
-			val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-			
-			for(view in views) {
-				val params = view.layoutParams as ViewGroup.MarginLayoutParams
-				params.updateMargins(top = bars.top)
-				view.layoutParams = params
-			}
-			
-			WindowInsetsCompat.CONSUMED
 		}
 	}
 	

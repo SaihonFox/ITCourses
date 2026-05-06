@@ -31,6 +31,7 @@
 			android:fontFamily="@font/roboto"
 			android:hint="Search courses..."
 			android:padding="16dp"
+			android:textColor="@color/em_white"
 			android:textColorHint="@color/em_white"
 			android:textSize="14sp" />
 		
