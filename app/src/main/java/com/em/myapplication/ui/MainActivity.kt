@@ -1,7 +1,6 @@
 package com.em.myapplication.ui
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.em.myapplication.R
 import com.em.myapplication.databinding.ActivityMainBinding
