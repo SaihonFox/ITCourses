@@ -23,9 +23,12 @@ class CourseRepositoryImpl(private val api: CourseAPI, private val dao: CourseDa
 			
 			val body = response.body()!!.map { it.toEntity() }
 			
-			val localLikes = dao.getCourses().first().associate { it.id to it.hasLike }
+			val localLikes = dao.getCourses().first()
 			val mergedEntities = body.map { serverEntity ->
-				serverEntity.copy(hasLike = localLikes[serverEntity.id] ?: false)
+				var se = serverEntity
+				if(localLikes.map { it.id }.contains(serverEntity.id))
+					se = serverEntity.copy(hasLike = localLikes.first { it.id == serverEntity.id }.hasLike)
+				se
 			}
 			
 			dao.insertRange(mergedEntities)
